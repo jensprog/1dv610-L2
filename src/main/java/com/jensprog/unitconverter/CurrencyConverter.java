@@ -1,6 +1,8 @@
 package com.jensprog.unitconverter;
 
 import java.math.BigDecimal;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class CurrencyConverter {
     private String fromCurrency;
@@ -9,10 +11,6 @@ public class CurrencyConverter {
     public CurrencyConverter(String fromCurrency, String toCurrency) {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
-    }
-
-    public BigDecimal convert(BigDecimal amount) {
-        return BigDecimal.ZERO; // Placeholder until API integration is implemented
     }
 
     public String getFromCurrency() {
@@ -35,5 +33,13 @@ public class CurrencyConverter {
             throw new IllegalArgumentException("Currency cannot be null or empty");
         }
         this.toCurrency = toCurrency;
+    }
+
+    public int exchangeRateRequest() {
+        return 0;
+    }
+
+    public BigDecimal convert(BigDecimal amount) {
+        return BigDecimal.ZERO; // Placeholder until API integration is implemented
     }
 }
