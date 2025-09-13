@@ -8,7 +8,16 @@ class LengthConverterTest {
   @Test
   void testInchToKilometer() {
     LengthConverter lengthConverter = new LengthConverter("inch", "kilometer");
-    double result = lengthConverter.convert(1);
-    assertEquals(0.0000254, result, 0.000001);
+    double input = 1;
+    double expected = 0.0000254;
+    assertEquals(expected, lengthConverter.convert(input), 0.0000001);
+
+    input = 1000;
+    expected = 0.0254;
+    assertEquals(expected, lengthConverter.convert(input), 0.0000001);
+
+    input = 10000000;
+    expected = 254;
+    assertEquals(expected, lengthConverter.convert(input), 0.0001);
   }
 }

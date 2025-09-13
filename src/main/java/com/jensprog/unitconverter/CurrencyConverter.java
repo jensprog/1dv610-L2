@@ -1,8 +1,8 @@
 package com.jensprog.unitconverter;
 
 import java.math.BigDecimal;
-import java.net.HttpURLConnection;
-import java.net.URL;
+//import java.net.HttpURLConnection;
+//import java.net.URL;
 
 
 public class CurrencyConverter {
