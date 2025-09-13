@@ -1,3 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle/google_checks.xml",
+  "java.checkstyle.properties": {
+    "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/checkstyle-suppressions.xml"
+  },
+  "java.checkstyle.version": "11.0.1"
 }

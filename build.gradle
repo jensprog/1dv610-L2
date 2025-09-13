@@ -8,6 +8,12 @@ checkstyle {
     configFile = rootProject.file('config/checkstyle/google_checks.xml')
 }
 
+tasks.withType(Checkstyle).configureEach {
+    configProperties = [
+        'org.checkstyle.google.suppressionfilter.config': rootProject.file('config/checkstyle/checkstyle-suppressions.xml').absolutePath
+    ]
+}
+
 repositories {
     mavenCentral()
 }
