@@ -9,6 +9,7 @@ import java.util.Map;
 public class LengthConverter {
   private String fromUnit;
   private String toUnit;
+  
   private static final Map<String, Double> TO_METERS = Map.of(
       "meter", 1.0,
       "millimeter", 0.001,
@@ -36,14 +37,14 @@ public class LengthConverter {
 
   public void setFromUnit(String fromUnit) {
     if (fromUnit == null || fromUnit.isEmpty()) {
-      throw new IllegalArgumentException("Unit cannot be null or empty");
+      throw new IllegalArgumentException("fromUnit cannot be null or empty");
     }
     this.fromUnit = fromUnit;
   }
 
   public void setToUnit(String toUnit) {
     if (toUnit == null || toUnit.isEmpty()) {
-      throw new IllegalArgumentException("Unit cannot be null or empty");
+      throw new IllegalArgumentException("toUnit cannot be null or empty");
     }
     this.toUnit = toUnit;
   }

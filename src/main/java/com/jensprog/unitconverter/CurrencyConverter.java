@@ -25,7 +25,7 @@ public class CurrencyConverter {
   
   public void setFromCurrency(String fromCurrency) {
     if (fromCurrency == null || fromCurrency.isEmpty()) {
-      throw new IllegalArgumentException("Currency cannot be null or empty");
+      throw new IllegalArgumentException("fromCurrency cannot be null or empty");
     }
     this.fromCurrency = fromCurrency;
   }
@@ -33,7 +33,7 @@ public class CurrencyConverter {
 
   public void setToCurrency(String toCurrency) {
     if (toCurrency == null || toCurrency.isEmpty()) {
-      throw new IllegalArgumentException("Currency cannot be null or empty");
+      throw new IllegalArgumentException("toCurrency cannot be null or empty");
     }
     this.toCurrency = toCurrency;
   }

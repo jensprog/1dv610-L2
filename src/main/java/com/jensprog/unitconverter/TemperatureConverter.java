@@ -1,7 +1,7 @@
 package com.jensprog.unitconverter;
 
 /**
- * A utility class for converting temperature values between Celsius, Fahrenheit, and Kelvin.
+ * A utility class for converting temperature values between Celsius, Fahrenheit and Kelvin.
  */
 public class TemperatureConverter {
   private String fromUnit;
@@ -23,7 +23,7 @@ public class TemperatureConverter {
 
   public void setFromUnit(String fromUnit) {
     if (fromUnit == null || fromUnit.isEmpty()) {
-      throw new IllegalArgumentException("Unit cannot be null or empty");
+      throw new IllegalArgumentException("fromUnit cannot be null or empty");
     }
     this.fromUnit = fromUnit;
   }
@@ -31,7 +31,7 @@ public class TemperatureConverter {
  
   public void setToUnit(String toUnit) {
     if (toUnit == null || toUnit.isEmpty()) {
-      throw new IllegalArgumentException("Unit cannot be null or empty");
+      throw new IllegalArgumentException("toUnit cannot be null or empty");
     }
     this.toUnit = toUnit;
   }
