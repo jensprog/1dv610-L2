@@ -6,22 +6,22 @@ public class WeightConverter {
   private String fromUnit;
   private String toUnit;
 
-  private static final HashMap<String, Double> toKilograms = new HashMap<>();
+  private static final HashMap<String, Double> conversion = new HashMap<>();
 
   static {
-    toKilograms.put("kilogram", 1.0);
-    toKilograms.put("tonne", 1000.0);
-    toKilograms.put("hectogram", 0.1);
-    toKilograms.put("gram", 0.001);
-    toKilograms.put("milligram", 0.000001);
-    toKilograms.put("microgram", 0.000000001);
-    toKilograms.put("nanogram", 0.000000000001);
-    toKilograms.put("longTon", 1016.0469088);
-    toKilograms.put("shortTon", 907.18474);
-    toKilograms.put("stone", 6.35029318);
-    toKilograms.put("pound", 0.45359237);
-    toKilograms.put("ounce", 0.028349523125);
-    toKilograms.put("grain", 0.00006479891);
+    conversion.put("kilogram", 1.0);
+    conversion.put("tonne", 1000.0);
+    conversion.put("hectogram", 0.1);
+    conversion.put("gram", 0.001);
+    conversion.put("milligram", 0.000001);
+    conversion.put("microgram", 0.000000001);
+    conversion.put("nanogram", 0.000000000001);
+    conversion.put("longTon", 1016.0469088);
+    conversion.put("shortTon", 907.18474);
+    conversion.put("stone", 6.35029318);
+    conversion.put("pound", 0.45359237);
+    conversion.put("ounce", 0.028349523125);
+    conversion.put("grain", 0.00006479891);
   }
 
   public WeightConverter(String fromUnit, String toUnit) {
@@ -53,8 +53,8 @@ public class WeightConverter {
 
   public double convert(double value) {
     try {
-      double fromFactor = toKilograms.get(fromUnit);
-      double toFactor = toKilograms.get(toUnit);
+      double fromFactor = conversion.get(fromUnit);
+      double toFactor = conversion.get(toUnit);
 
       return value * fromFactor / toFactor;
     } catch (Exception e) {
