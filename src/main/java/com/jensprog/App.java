@@ -16,6 +16,6 @@ public class App {
 
     WeightConverter weightConverter = new WeightConverter("kilogram", "tonne");
     double tonnes = weightConverter.convert(90);
-    System.out.println("90 kilogram is " + tonnes + " tonnes");
+    System.out.println("90 kilograms is " + tonnes + " tonnes");
   }
 }
