@@ -1,9 +1,6 @@
 package com.jensprog.unitconverter;
 
 import java.math.BigDecimal;
-//import java.net.HttpURLConnection;
-//import java.net.URL;
-
 
 public class CurrencyConverter {
   private String fromCurrency;
@@ -36,10 +33,6 @@ public class CurrencyConverter {
       throw new IllegalArgumentException("toCurrency cannot be null or empty");
     }
     this.toCurrency = toCurrency;
-  }
-
-  public int exchangeRateRequest() {
-    return 0;
   }
 
   public BigDecimal convert(BigDecimal amount) {
