@@ -20,4 +20,12 @@ class VolumeConverterTest {
     double expected = 3.78541;
     assertEquals(expected, volumeconverter.convert(input), 0.0001);
   }
+
+  @Test
+  public void testCubicMeterToCubicFoot() {
+    VolumeConverter volumeConverter = new VolumeConverter("cubic meter", "cubic foot");
+    double input = 1;
+    double expected = 35.3147;
+    assertEquals(expected, volumeConverter.convert(input), 0.0001);
+  }
 }
