@@ -1,5 +1,6 @@
 package com.jensprog.data;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,9 +21,11 @@ public class ExchangeRateProvider {
 
   public String fetchLatestRates() throws IOException {
     try {
-      HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create(API_URL))
-          .build();
+      Dotenv dotenv = Dotenv.load();
+      String apiKey = dotenv.get("API_KEY");
+      String urlWithKey = API_URL + "?access_key=" + apiKey;
+
+      HttpRequest request = HttpRequest.newBuilder().uri(URI.create(urlWithKey)).build();
 
       return httpClient.send(request, java.net.http.HttpResponse.BodyHandlers.ofString()).body();
     } catch (Exception e) {
