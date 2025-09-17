@@ -25,7 +25,7 @@ public class ExchangeRateProvider {
     this.httpClient = HttpClient.newHttpClient();
   }
 
-  public String fetchLatestRates() throws IOException {
+  public String getLatestExchangeRates() throws IOException {
     try {
       Dotenv dotenv = Dotenv.load();
       String apiKey = dotenv.get("API_KEY");
