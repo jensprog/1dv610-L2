@@ -12,10 +12,15 @@ import java.net.http.HttpRequest;
  * it falls back to the latest exchange rates.
  */
 public class ExchangeRateProvider {
-  private static final String API_URL = "https://api.exchangerate.host/latest";
+  private final String apiUrl;
   private HttpClient httpClient;
 
   public ExchangeRateProvider() {
+    this("https://api.exchangerate.host/latest");
+  }
+
+  public ExchangeRateProvider(String apiUrl) {
+    this.apiUrl = apiUrl;
     this.httpClient = HttpClient.newHttpClient();
   }
 
@@ -23,7 +28,7 @@ public class ExchangeRateProvider {
     try {
       Dotenv dotenv = Dotenv.load();
       String apiKey = dotenv.get("API_KEY");
-      String urlWithKey = API_URL + "?access_key=" + apiKey;
+      String urlWithKey = apiUrl + "?access_key=" + apiKey;
 
       HttpRequest request = HttpRequest.newBuilder().uri(URI.create(urlWithKey)).build();
 
