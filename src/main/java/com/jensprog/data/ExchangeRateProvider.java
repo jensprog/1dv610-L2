@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 /*
  * This class is fetching up-to-date exchange rates from an external API.
@@ -32,7 +33,7 @@ public class ExchangeRateProvider {
 
       HttpRequest request = HttpRequest.newBuilder().uri(URI.create(urlWithKey)).build();
 
-      return httpClient.send(request, java.net.http.HttpResponse.BodyHandlers.ofString()).body();
+      return httpClient.send(request, HttpResponse.BodyHandlers.ofString()).body();
     } catch (Exception e) {
       throw new IOException("Failed to fetch exchange rates", e);
     }
