@@ -22,7 +22,6 @@ public class LengthConverter {
     conversion.put("foot", 0.3048);
     conversion.put("yard", 0.9144);
     conversion.put("mile", 1609.34);
-    conversion.put("nautical mile", 1852.0);
   }
 
   public LengthConverter(String fromUnit, String toUnit) {
