@@ -1,45 +1,35 @@
 package com.jensprog.parser;
 
+import com.jensprog.data.ConversionRequest;
+
 public class UnitConversionQueryParser {
-  private String input;
-  private String fromUnit;
-  private String toUnit;
-  private double value;
 
-  public UnitConversionQueryParser(String input) {
-    this.input = input;
-    parse();
+  public UnitConversionQueryParser() {}
+
+  private double extractValue(String input) {
+    String[] parts = input.trim().split(" ");
+    return Double.parseDouble(parts[0]);
   }
 
-  public String getFromUnit() {
-    return fromUnit;
+  private String extractFromUnit(String input) {
+    String[] parts = input.trim().split(" ");
+    return parts[1];
   }
 
-  public String getToUnit() {
-    return toUnit;
+  private String extractToUnit(String input) {
+    String[] parts = input.trim().split(" ");
+    return parts[3];
   }
 
-  public double getValue() {
-    return value;
-  }
-
-  private void validateStringFormat() {
+  private void validateStringFormat(String input) {
     if (input == null || input.length() < 4 || input.isEmpty()) {
-      throw new IllegalArgumentException("Input cannot be null, have less than 4 elements "
-          + "or be empty");
-    }
-  }
-
-  private void validateValueInput() {
-    if (value < 0 || Double.isInfinite(value)) {
-      throw new IllegalArgumentException("Value cannot be negative or infinite");
+      throw new IllegalArgumentException("Input cannot be null, have less than 4 elements");
     }
   }
 
   private void checkElementsLength(String[] parts) {
     if (parts.length != 4) {
-      throw new IllegalArgumentException("Invalid format: expected "
-          + "'<value> <fromUnit> to <toUnit>'");
+      throw new IllegalArgumentException("Input string must have exactly 4 elements");
     }
   }
 
@@ -49,20 +39,16 @@ public class UnitConversionQueryParser {
     }
   }
 
-  private void parse() {
+  public ConversionRequest parse(String input) {
+    validateStringFormat(input);
     String[] parts = input.trim().split(" ");
-    validateStringFormat();
     checkElementsLength(parts);
     checkToKeyword(parts);
+    
+    double value = extractValue(input);
+    String fromUnit = extractFromUnit(input);
+    String toUnit = extractToUnit(input);
 
-    try {
-      value = Double.parseDouble(parts[0]);
-
-    } catch (NumberFormatException e) {
-      throw new IllegalArgumentException("The value must be a valid number");
-    }
-    fromUnit = parts[1];
-    toUnit = parts[3];
-    validateValueInput();
+    return new ConversionRequest(value, fromUnit, toUnit);
   }
 }
