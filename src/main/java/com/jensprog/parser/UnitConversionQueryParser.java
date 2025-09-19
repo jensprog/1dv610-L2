@@ -4,8 +4,6 @@ import com.jensprog.data.ConversionRequest;
 
 public class UnitConversionQueryParser {
 
-  public UnitConversionQueryParser() {}
-
   private double extractValue(String input) {
     String[] parts = input.trim().split(" ");
     return Double.parseDouble(parts[0]);
