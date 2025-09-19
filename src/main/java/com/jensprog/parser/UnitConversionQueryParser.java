@@ -1,21 +1,37 @@
 package com.jensprog.parser;
 
-import com.jensprog.data.ConversionRequest;
-
 public class UnitConversionQueryParser {
+  private String input;
+  private String fromUnit;
+  private String toUnit;
+  private double value;
 
-  private double extractValue(String input) {
-    String[] parts = input.trim().split(" ");
+  public UnitConversionQueryParser(String input) {
+    this.input = input;
+    parseString();
+  }
+
+  public String getFromUnit() {
+    return fromUnit;
+  }
+
+  public String getToUnit() {
+    return toUnit;
+  }
+
+  public double getValue() {
+    return value;
+  }
+
+  private double extractValue(String[] parts) {
     return Double.parseDouble(parts[0]);
   }
 
-  private String extractFromUnit(String input) {
-    String[] parts = input.trim().split(" ");
+  private String extractFromUnit(String[] parts) {
     return parts[1];
   }
 
-  private String extractToUnit(String input) {
-    String[] parts = input.trim().split(" ");
+  private String extractToUnit(String[] parts) {
     return parts[3];
   }
 
@@ -37,16 +53,14 @@ public class UnitConversionQueryParser {
     }
   }
 
-  public ConversionRequest parse(String input) {
+  private void parseString() {
     validateStringFormat(input);
     String[] parts = input.trim().split(" ");
     checkElementsLength(parts);
     checkToKeyword(parts);
-    
-    double value = extractValue(input);
-    String fromUnit = extractFromUnit(input);
-    String toUnit = extractToUnit(input);
 
-    return new ConversionRequest(value, fromUnit, toUnit);
+    this.value = extractValue(parts);
+    this.fromUnit = extractFromUnit(parts);
+    this.toUnit = extractToUnit(parts);
   }
 }
