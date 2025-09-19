@@ -1,12 +1,12 @@
 package com.jensprog.parser;
 
-public class LengthParser {
+public class UnitConversionQueryParser {
   private String input;
   private String fromUnit;
   private String toUnit;
   private double value;
 
-  public LengthParser(String input) {
+  public UnitConversionQueryParser(String input) {
     this.input = input;
     parse();
   }

@@ -1,12 +1,12 @@
 package com.jensprog.formatter;
 
-public class LengthStringFormatter {
+public class UnitConversionQueryFormatter {
   private double originalValue;
   private String fromUnit;
   private double convertedValue;
   private String toUnit;
 
-  public LengthStringFormatter(double originalValue, String fromUnit,
+  public UnitConversionQueryFormatter(double originalValue, String fromUnit,
       double convertedValue, String toUnit) {
     this.originalValue = originalValue;
     this.fromUnit = fromUnit;

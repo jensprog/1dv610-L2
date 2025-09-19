@@ -1,7 +1,7 @@
 package com.jensprog;
 
-import com.jensprog.formatter.LengthStringFormatter;
-import com.jensprog.parser.LengthParser;
+import com.jensprog.formatter.UnitConversionQueryFormatter;
+import com.jensprog.parser.UnitConversionQueryParser;
 import com.jensprog.unitconverter.LengthConverter;
 import java.util.Scanner;
 
@@ -11,15 +11,15 @@ public class App {
     System.out.print("Enter length to convert (e.g., '15.5 meter to kilometer'): ");
     String input = scanner.nextLine();
 
-    LengthParser lengthParser = new LengthParser(input);
+    UnitConversionQueryParser parser = new UnitConversionQueryParser(input);
 
-    LengthConverter lengthConverter = new LengthConverter(lengthParser.getFromUnit(),
-        lengthParser.getToUnit());
+    LengthConverter converter = new LengthConverter(parser.getFromUnit(),
+        parser.getToUnit());
 
-    double result = lengthConverter.convert(lengthParser.getValue());
+    double result = converter.convert(parser.getValue());
 
-    LengthStringFormatter formatter = new LengthStringFormatter(lengthParser.getValue(),
-        lengthParser.getFromUnit(), result, lengthParser.getToUnit());
+    UnitConversionQueryFormatter formatter = new UnitConversionQueryFormatter(parser.getValue(),
+        parser.getFromUnit(), result, parser.getToUnit());
     System.out.println(formatter.format());
     scanner.close();
 
