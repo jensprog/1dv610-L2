@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class App {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter length to convert (e.g., '15.5 meter to kilometer'): ");
+    System.out.print("Enter length to convert: ");
     String input = scanner.nextLine();
 
     UnitConversionQueryParser parser = new UnitConversionQueryParser(input);

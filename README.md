@@ -15,9 +15,12 @@ The **String Parser** is used to convert different units in a more natural langu
 
 ```bash
 # Example of a user input and output
-Enter length to convert (e.g., '15.5 meter to kilometer'): 10 meter to kilometer
-10.0 meters is 0.01 kilometers
+Enter length to convert: I need to calculate how much 10 kilometer is in meter 
+10.0 kilometers is 10000.0 meters
 ```
+
+## Reflections
+![Reflections](docs/Reflections.md)
 
 ## License
 

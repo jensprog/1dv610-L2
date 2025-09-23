@@ -1,0 +1,17 @@
+# Reflections
+
+## Naming (Classes/methods/variables)
+
+| Name                       | Explanation                                                                                                                                                                                                                                                                         | Reflection and rules Clean Code |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| UnitConversionQueryParser  | Class name (src/main/java/jensprog/parser)  |    **Class name**: The class name fulfills the book’s "rule" of a noun phrase or a noun. It describes what it parses and what the class is. **Use Pronounceable names**: You can say it easily, but it’s quite long so maybe you could remove the "Query" part of the class name.                              |
+| UnitConversionQueryFormatter | Class name (src/main/java/jensprog/formatter)                              |   **Avoid Mental Mapping**: I believe that I could use more clarity in the naming of this class. The purpose of the class is to format and display the conversion between two units. A change to "UnitConversionDisplayFormatter" might be better.                                     |
+| convert(double value)      | Method name (src/main/java/jensprog/unitconverter/LengthConverter.java)                         |     **Method names**: The naming is short, but it says what it does. I could be more explicit and create methods for each conversion e.g., "convertMeterToCentimeter" but when using the convert method I believe it shows its action.                                |
+| getValue()                 |    Method name (src/main/java/jensprog/parser/UnitConversionQueryParser.java)                                                                                                      |           **Pick One Word per Concept**: The usage of "get" is used across the module. I don’t use "fetch", "retrieve", etc. for different "getter" methods, they use only one word.                           |
+| fromUnit                   | Instance variable/parameter (src/main/java/jensprog/unitconverter/LengthConverter.java)                                                        |     **Use Intention-Revealing Names**: The instance variable/parameter could be better in my opinion if I changed it to "fromSourceUnit". I decided to stick to this naming instead because I think it’s clear enough.   |
+
+## Reflection Chapter 2
+
+It is harder than I thought to name things in programming. Many times I named methods so I understood them, but later when I thought about it, it was barely understandable for myself. To name things so that another programmer doesn't even have to look into the method is hard, but at the same time I noticed that when I had a hard time naming something it was also because the method was doing too much.
+
+A good example of bad naming (which is now removed) is this method that is suppose to check the array of strings for the "to" word. I had no clue how to name the method well, so to maybe understand what it does you had to check inside the method. ![Bad naming example](images/checkToKeyword.png).
