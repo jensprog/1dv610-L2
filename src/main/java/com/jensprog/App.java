@@ -12,18 +12,19 @@ public class App {
     String input = scanner.nextLine();
 
     UnitConversionQueryParser parser = new UnitConversionQueryParser(input);
+    double value = parser.getValue();
+    String fromUnit = parser.getFromUnit();
+    String toUnit = parser.getToUnit();
 
-    LengthConverter converter =
-        new LengthConverter(parser.getFromUnit(), parser.getToUnit());
-    double convertedValue = converter.convert(parser.getValue());
+    LengthConverter converter = new LengthConverter(fromUnit, toUnit);
+    double convertedValue = converter.convert(value);
 
     UnitConversionQueryFormatter formatter = new UnitConversionQueryFormatter(
-        parser.getValue(),
-        parser.getFromUnit(),
+        value,
+        fromUnit,
         convertedValue,
-        parser.getToUnit()
+        toUnit
     );
-
     System.out.println(formatter.format());
     scanner.close();
 
