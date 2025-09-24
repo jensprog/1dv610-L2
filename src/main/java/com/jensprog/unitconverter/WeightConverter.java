@@ -2,6 +2,9 @@ package com.jensprog.unitconverter;
 
 import java.util.HashMap;
 
+/**
+ * Converts weight values between different units.
+ */
 public class WeightConverter {
   private String fromUnit;
   private String toUnit;

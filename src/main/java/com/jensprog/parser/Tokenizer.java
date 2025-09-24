@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Tokenizer class breaks the input string into tokens.
+ */
 public class Tokenizer {
   private final String input;
   private final List<Token> tokens = new ArrayList<>();

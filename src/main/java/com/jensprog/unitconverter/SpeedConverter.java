@@ -1,5 +1,8 @@
 package com.jensprog.unitconverter;
 
+/**
+ * Converts speed values between different units.
+ */
 public class SpeedConverter {
   private String fromUnit;
   private String toUnit;

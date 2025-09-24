@@ -2,6 +2,9 @@ package com.jensprog.unitconverter;
 
 import java.util.HashMap;
 
+/**
+ * Converts volume values between different units.
+ */
 public class VolumeConverter {
   private String fromUnit;
   private String toUnit;

@@ -2,6 +2,9 @@ package com.jensprog.parser;
 
 import java.util.List;
 
+/**
+ * Parses a unit conversion query from a string input.
+ */
 public class UnitConversionQueryParser {
   private double value;
   private String fromUnit;

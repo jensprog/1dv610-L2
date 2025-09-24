@@ -1,5 +1,8 @@
 package com.jensprog.formatter;
 
+/**
+ * Formats the result of a unit conversion to display to the user.
+ */
 public class UnitConversionQueryFormatter {
   private double originalValue;
   private String fromUnit;
