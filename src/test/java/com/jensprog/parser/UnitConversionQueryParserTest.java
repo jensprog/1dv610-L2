@@ -11,7 +11,7 @@ public class UnitConversionQueryParserTest {
     UnitConversionQueryParser parser = new UnitConversionQueryParser(input);
     
     assertEquals(10.0, parser.getValue());
-    assertEquals("meters", parser.getFromUnit());
-    assertEquals("feet", parser.getToUnit());
+    assertEquals("meter", parser.getFromUnit());
+    assertEquals("foot", parser.getToUnit());
   }
 }

@@ -1,8 +1,11 @@
 package com.jensprog.parser;
 
+import com.jensprog.unitconverter.UnitWordTransformer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+
 
 /**
  * Tokenizer class breaks the input string into tokens.
@@ -10,30 +13,24 @@ import java.util.Set;
 public class Tokenizer {
   private final String input;
   private final List<Token> tokens = new ArrayList<>();
+  private final UnitWordTransformer wordTransformer = new UnitWordTransformer();
   private static final Set<String> VALID_UNITS = Set.of(
-      // Length units
-      "meter", "meters", "kilometer", "kilometers",
-      "mile", "miles", "foot", "feet", "inch", "inches", "centimeter", "centimeters",
-      "millimeter", "millimeters", "yard", "yards", "decimeter", "decimeters",
+      "meter", "kilometer",
+      "mile", "foot", "inch", "centimeter",
+      "millimeter", "yard", "decimeter",
 
-      // Weight units
-      "gram", "grams", "kilogram", "kilograms", "pound", "pounds", "ounce", "ounces",
-      "tonne", "tonnes", "milligram", "milligrams", "microgram", "micrograms",
-      "stone", "stones", "longTon", "longTons", "shortTon", "shortTons", "hectogram", "hectograms",
-      "nanogram", "nanograms",
-      "grain", "grains",
+      "gram", "kilogram", "pound", "ounce",
+      "tonne", "milligram", "microgram",
+      "stone", "longTon", "shortTon", "hectogram",
+      "nanogram", "grain",
 
-      // Volume units
-      "liter", "liters", "milliliter", "milliliters", "gallon", "gallons", "quart", "quarts", 
-      "pint", "pints", "cup", "cups", "fluid ounce", "fluid ounces", "tablespoon", "tablespoons",
-      "teaspoon", "teaspoons", "cubic meter", "cubic meters", "cubic centimeter", 
-      "cubic centimeters", "cubic inch", "cubic inches", "cubic foot", "cubic feet", 
-      "cubic yard", "cubic yards", "deciliter", "deciliters", "centiliter", "centiliters",
+      "liter", "milliliter", "gallon", "quart", 
+      "pint", "cup", "fluid ounce", "tablespoon",
+      "teaspoon", "cubic meter", "cubic centimeter", 
+      "cubic inch", "cubic foot", "cubic yard", "deciliter", "centiliter",
 
-      // Speed units
       "km/h", "kmph", "kph", "m/s", "mph",
 
-      // Temperature units
       "celsius", "fahrenheit", "kelvin"
       );
 
@@ -98,14 +95,15 @@ public class Tokenizer {
       position++;
     }
 
-    if (VALID_UNITS.contains(input.substring(start, position).toLowerCase())) {
-      String unitText = input.substring(start, position);
-      tokens.add(new Token(TokenType.UNIT, unitText, 0, start));
+    String wordText = input.substring(start, position).toLowerCase();
+    String singularForm = wordTransformer.singularize(wordText);
+
+    if (VALID_UNITS.contains(singularForm)) {
+      tokens.add(new Token(TokenType.UNIT, singularForm, 0, start));
       return position;
     }
 
-    String wordText = input.substring(start, position);
-    tokens.add(new Token(TokenType.WORD, wordText, 0, start));
+    tokens.add(new Token(TokenType.WORD, singularForm, 0, start));
     return position;
   }
 

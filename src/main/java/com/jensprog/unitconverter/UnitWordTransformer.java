@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * A utility class for pluralizing and singularizing unit names.
  */
-public class UnitPluralizer {
+public class UnitWordTransformer {
   private final Map<String, String> singularToPlural = new HashMap<>();
 
   {
@@ -53,7 +53,7 @@ public class UnitPluralizer {
 
   private final Map<String, String> pluralToSingular = new HashMap<>();
 
-  public UnitPluralizer() {
+  public UnitWordTransformer() {
     reversePluralToSingular();
   }
 

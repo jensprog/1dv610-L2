@@ -1,5 +1,7 @@
 package com.jensprog.formatter;
 
+import com.jensprog.unitconverter.UnitWordTransformer;
+
 /**
  * Formats the result of a unit conversion to display to the user.
  */
@@ -8,6 +10,7 @@ public class UnitConversionQueryFormatter {
   private String fromUnit;
   private double convertedValue;
   private String toUnit;
+  private final UnitWordTransformer wordTransformer = new UnitWordTransformer();
 
   public UnitConversionQueryFormatter(double originalValue, String fromUnit,
       double convertedValue, String toUnit) {
@@ -18,6 +21,9 @@ public class UnitConversionQueryFormatter {
   }
 
   public String format() {
-    return originalValue + " " + fromUnit + "s" + " is " + convertedValue + " " + toUnit + "s";
+    String fromUnitFormatted = wordTransformer.pluralize(fromUnit, originalValue);
+    String toUnitFormatted = wordTransformer.pluralize(toUnit, convertedValue);
+    return originalValue + " " + fromUnitFormatted + " is " 
+        + convertedValue + " " + toUnitFormatted;
   }
 }
