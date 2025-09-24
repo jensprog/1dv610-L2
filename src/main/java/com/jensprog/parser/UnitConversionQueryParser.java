@@ -28,9 +28,6 @@ public class UnitConversionQueryParser {
     return toUnit;
   }
 
-  private void normalizeUnits() {
-  }
-
   private void extractValue(List<Token> tokens) {
     for (Token token : tokens) {
       if (token.getType() == TokenType.NUMBER) {
