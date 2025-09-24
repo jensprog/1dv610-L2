@@ -12,7 +12,7 @@ public class UnitConversionQueryParser {
 
   public UnitConversionQueryParser(String input) {
     Tokenizer tokenizer = new Tokenizer(input);
-    var tokens = tokenizer.scanTokens();
+    List<Token> tokens = tokenizer.scanTokens();
     parse(tokens);
   }
 
@@ -26,6 +26,9 @@ public class UnitConversionQueryParser {
 
   public String getToUnit() {
     return toUnit;
+  }
+
+  private void normalizeUnits() {
   }
 
   private void extractValue(List<Token> tokens) {

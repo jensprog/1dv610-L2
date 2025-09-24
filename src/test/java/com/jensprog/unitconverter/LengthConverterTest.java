@@ -134,4 +134,20 @@ class LengthConverterTest {
     expected = 1000;
     assertEquals(expected, lengthConverter.convert(input), 0.0001);
   }
+
+  @Test
+  public void testMeterToMeter() {
+    LengthConverter lengthConverter = new LengthConverter("meter", "meter");
+    double input = 1;
+    double expected = 1;
+    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+
+    input = 0.01;
+    expected = 0.01;
+    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+
+    input = 1000;
+    expected = 1000;
+    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+  }
 }

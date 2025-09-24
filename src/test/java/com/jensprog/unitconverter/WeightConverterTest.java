@@ -37,4 +37,20 @@ class WeightConverterTest {
     expected = 1;
     assertEquals(expected, weightConverter.convert(input), 0.01);
   }
+
+  @Test
+  public void testKilogramToKilogram() {
+    WeightConverter weightConverter = new WeightConverter("kilogram", "kilogram");
+    double input = 10;
+    double expected = 10;
+    assertEquals(expected, weightConverter.convert(input), 0.0001);
+
+    input = 250;
+    expected = 250;
+    assertEquals(expected, weightConverter.convert(input), 0.0001);
+
+    input = 0.454;
+    expected = 0.454;
+    assertEquals(expected, weightConverter.convert(input), 0.0001);
+  }
 }
