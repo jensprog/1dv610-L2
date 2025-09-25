@@ -42,9 +42,9 @@ public class UnitWordTransformer {
     singularToPlural.put("cup", "cups");
     singularToPlural.put("fluidOunce", "fluidOunces");
 
-    singularToPlural.put("meterPerSecond", "metersPerSecond");
-    singularToPlural.put("kilometerPerHour", "kilometersPerHour");
-    singularToPlural.put("milePerHour", "milesPerHour");
+    singularToPlural.put("m/s", "m/s");
+    singularToPlural.put("km/h", "km/h");
+    singularToPlural.put("mph", "mph");
 
     singularToPlural.put("celsius", "celsius");
     singularToPlural.put("fahrenheit", "fahrenheit");

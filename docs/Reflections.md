@@ -14,7 +14,7 @@
 
 I have not reflected as much of naming before as I do now when reading the book and also focus on it. It is harder than I expected and so far from my experience, the more a class/method/variable do, the harder it is to give them good descriptive names. I have started creating certain methods (example below) with names I did not like, I understood what the method did but if someone looked at the name of the method, they might not get it immediately. When I created classes or methods with names I thought were good, I felt that someone from the outside don't have to check what the class actually does or what the behaviour of the method is, since the naming was good.
 
-Before reading the book I have not thought about nouns and verbs, why it's better that classes have nouns and methods have verbs. 
+Before reading the book I have not thought about nouns and verbs, why it's better that classes have nouns and methods have verbs.
 
 A good example of bad naming (which is now removed) is this method that is suppose to check the array of strings for the "to" word. I had no clue how to name the method well, so to maybe understand what it does you had to check inside the method. ![Bad naming example](images/checkToKeyword.png)
 
