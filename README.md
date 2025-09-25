@@ -6,7 +6,7 @@ Users need **Java version 17+ for Gradle 9.0.0**. When you clone the repo and th
 
 ```bash
 # Example of a gradle command
-  ./gradlew test
+  ./gradlew build
 ```
 
 ## Usage
@@ -24,6 +24,11 @@ Enter length to convert: I need to calculate how much 10 kilometer is in meter
 [Reflections](docs/Reflections.md)
 
 ## Test Report & Unit Test Screenshots
+
+```bash
+# How to run all unit tests
+./gradlew test
+```
 
 - [TestReport](docs/test-reports/TestReport.md)
 - [AutomatedTests](docs/images/ModuleTests.png)
