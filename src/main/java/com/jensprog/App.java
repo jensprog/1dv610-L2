@@ -2,13 +2,13 @@ package com.jensprog;
 
 import com.jensprog.formatter.UnitConversionQueryFormatter;
 import com.jensprog.parser.UnitConversionQueryParser;
-import com.jensprog.unitconverter.LengthConverter;
+import com.jensprog.unitconverter.UnitConversionService;
 import java.util.Scanner;
 
 public class App {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter length to convert: ");
+    System.out.print("Enter a unit to convert: ");
     String input = scanner.nextLine();
 
     UnitConversionQueryParser parser = new UnitConversionQueryParser(input);
@@ -16,8 +16,8 @@ public class App {
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();
 
-    LengthConverter converter = new LengthConverter(fromUnit, toUnit);
-    double convertedValue = converter.convert(value);
+    UnitConversionService conversionService = new UnitConversionService();
+    double convertedValue = conversionService.convert(value, fromUnit, toUnit);
 
     UnitConversionQueryFormatter formatter = new UnitConversionQueryFormatter(
         value,
