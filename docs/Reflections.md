@@ -34,3 +34,20 @@ A good example of bad naming (which is now removed) is this method that is suppo
 When I created the table of different methods and used some of the principles from chapter 3, I realized that I mostly found things that I could do better. Better method names, branching the methods into multiple smaller methods etc. One thing I've learned is that it is easier to create a method if you write the methods responsibilies beforehand, if you just keep everything in your head and then start implementing, often the method will do more than 1 thing. Of course as a beginner, Co-pilot will help adding functionality/validation etc in methods as well and it might seem fine to begin with, but after a while when really analyzing the method, you can see that you could make it more understandable. Which is good, that I can see that something can be better than it is.
 
 One thing I will say that I don't really agree with, and that's a part of why I kept the method as is. The convert-method of TemperatureConverter and SpeedConverter (linked in the table above) is full of nested if-statements, if I would ask the Robert C. Martin about it, he would've said that it does more than one thing. I can understand that point of view, but also it does only one thing in my opinion since it does convert different temperature & speed units. I would agree with the readability and understandability aspect of using multiple methods for each unit conversion, but from a "Do one thing" perspective I think you can argue that my implemenation does one thing.
+
+## Reflection Code Quality
+
+When I focused on the principles of the book, I created something and immedialty think about if the naming is good or not, if the method is doing too much etc. Of course my module is still a work in progress and those principles could be better implemented in my current codebase. But when reflecting over my current codebase I notice areas of improvement, something I have not thought of before and I believe that I've grown as a developer when I can see things that could be improved.
+
+For the most part I think I've done a ok job regarding **A Method Should Do One Thing and Do It Well**. My methods are not perfect and can still accomplish this principle better.
+I have followed the principle **Use Searchable Names** quite well, no class, method, variable is defined by a few letters. I believe I've also accomplished the nouns and verbs when creating both classes and methods, even though some class names might be on the longer side and could be refactored.
+
+I have thought about the story in chapter 3, page 34 **Small!** when the author visited his friend Kent, he reviewed his code and saw that each method was between 2-4 lines long. I thought of trying to make that happen in my module, at the moment of writing this reflection, I have not refactored my methods trying to achieve this principle.
+
+I used **Switch Statements** in one of my classes, multiple private boolean methods checking if a certain input is of a certain unit converter. When creating those methods they were between 5-7 lines of code each, which is not that bad in this case. So I thought I would keep them since they did not become 20+ lines long (like some of my if-statements).
+
+Something I have done a good job with is **Prefer Exceptions to Returning Error Codes**. None of my methods returns any error codes and most of them throws exceptions.
+
+I am using some try-catch blocks in my converter methods and according to the book those are ugly and should be extracted to separate methods.
+
+I do critisize myself a lot, have high expectations. Overall I do think I've done a good job but I see a lot of areas to improve to better follow the chapters we've read so far.

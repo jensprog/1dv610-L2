@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
-
 /**
  * Tokenizer class breaks the input string into tokens.
  */
