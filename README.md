@@ -25,7 +25,8 @@ Enter length to convert: I need to calculate how much 10 kilometer is in meter
 
 ## Test-Report
 
-[View Test-report](docs/test-reports)
+[TestReport](docs/test-reports/TestReport.md)
+[AutomatedTests](docs/images/ModuleTests.png)
 
 ## License
 
