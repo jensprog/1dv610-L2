@@ -42,3 +42,5 @@
 
 Every test passes but the tests are quite simple and doesn't test edge cases or faulty inputs. The test proves that the core functionality works as intended.
 Could be improved with better testing for invalid inputs, typos, incompatible units etc.
+
+I have not included all conversions in my tests, it would be the most optimal way to do it but it would take a lot of time, included what I stated in the earlier sentences. Unfortunatly I have to wrap things up before deadline.

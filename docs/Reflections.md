@@ -50,4 +50,11 @@ Something I have done a good job with is **Prefer Exceptions to Returning Error 
 
 I am using some try-catch blocks in my converter methods and according to the book those are ugly and should be extracted to separate methods.
 
-I do critisize myself a lot, have high expectations. Overall I do think I've done a good job but I see a lot of areas to improve to better follow the chapters we've read so far.
+**Takeaways**: From focusing on quality and the chapters of the book, I look at code differently even though I may have not always accomplished to fulfill the principles that well. I have not used many comments, I should probably add some comments to certain methods which I've noticed that I struggle to remember how they actually work. But I could also say that I maybe should refactor the name or create multiple methods to easier name them and increase understandability.
+
+**References**:
+<https://craftinginterpreters.com/scanning.html>
+<https://stackoverflow.com/questions/20412354/reverse-hashmap-keys-and-values-in-java>
+<https://www.w3schools.com/java/ref_hashmap_getordefault.asp>
+<https://www.baeldung.com/java-facade-pattern>
+<https://refactoring.guru/design-patterns/facade>
