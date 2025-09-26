@@ -2,15 +2,23 @@
 
 ## Get Started
 
+```bash
+git clone https://github.com/jensprog/1dv610-L2.git
+```
+
 Developers need to install Java version 21.
 
 ```bash
 # Ubuntu/Debian
 sudo apt update && sudo apt install openjdk-21-jdk
+```
 
+```bash
 # macOS (Homebrew)
 brew install openjdk@21
+```
 
+```bash
 # Windows
 - Download from https://www.oracle.com/java/technologies/downloads/
 # Or use Package Manager

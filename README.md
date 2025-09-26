@@ -2,12 +2,38 @@
 
 ## Usage
 
-The **String Parser** is used to convert different units in a more natural langugage using user input.
+The **String Parser** is used to convert different units in a more natural language using user input.
+
+```java
+// Example showing conversions with only value and units and with natural language involved
+package com.jensprog;
+
+import com.jensprog.formatter.UnitConversionQueryFormatter;
+import com.jensprog.parser.UnitConversionQueryParser;
+import com.jensprog.unitconverter.UnitConversionService;
+
+public class App {
+  public static void main(String[] args) {
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("15.5 kilometers to miles");
+    // Or "I want to know how far 15.5 kilometers is in miles"
+    // Or "What is 2 cups in liters?"
+    double value = parser.getValue(); // 15.5
+    String fromUnit = parser.getFromUnit(); // "kilometers"
+    String toUnit = parser.getToUnit(); // "miles"
+
+    UnitConversionService service = new UnitConversionService();
+    double result = service.convert(value, fromUnit, toUnit);
+
+    UnitConversionQueryFormatter formatter = new UnitConversionQueryFormatter(
+        value, fromUnit, result, toUnit);
+    System.out.println(formatter.format());
+  }
+}
+```
 
 ```bash
-# Example of a user input and output
-Enter length to convert: I need to calculate how much 10 kilometer is in meter 
-10.0 kilometers is 10000.0 meters
+# Output
+15.5 kilometers is 9.631277418072004 miles
 ```
 
 ## Reflections
@@ -23,6 +49,10 @@ Enter length to convert: I need to calculate how much 10 kilometer is in meter
 
 - [TestReport](docs/test-reports/TestReport.md)
 - [AutomatedTests](docs/images/ModuleTests.png)
+
+## Contributing
+
+- [Developer.md](DEVELOPER.md)
 
 ## License
 
