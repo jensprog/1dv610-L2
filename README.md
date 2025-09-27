@@ -1,5 +1,46 @@
 # Unit Converter String Parser Module
 
+## Getting started
+
+### Prerequisites
+
+In your Java project, add these to your build
+
+**Gradle**:
+
+```bash
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.jensprog:1dv610-L2:v1.0.0'
+}
+```
+
+**Maven**:
+
+```bash
+  <repositories>
+      <repository>
+          <id>jitpack.io</id>
+          <url>https://jitpack.io</url>
+      </repository>
+  </repositories>
+
+  <dependency>
+      <groupId>com.github.jensprog</groupId>
+      <artifactId>1dv610-L2</artifactId>
+      <version>v1.0.0</version>
+  </dependency>
+```
+
+**Manual JAR Download**:
+
+- Download the JAR from: <https://jitpack.io/com/github/jensprog/1dv610-L2/v1.0.0/1dv610-L2-v1.0.0.jar>
+- Add to your classpath manually
+
 ## Usage
 
 The **String Parser** is used to convert different units in a more natural language using user input.
@@ -35,6 +76,10 @@ public class App {
 # Output
 15.5 kilometers is 9.631277418072004 miles
 ```
+
+## Badges
+
+[![JitPack](https://jitpack.io/v/jensprog/1dv610-L2.svg)](https://jitpack.io/#jensprog/1dv610-L2)
 
 ## Reflections
 

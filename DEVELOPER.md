@@ -47,7 +47,10 @@ The project is using Google checkstyle. The only modification I've done is to re
 If you've come this far, I want to tell you about my visions for the module.
 The module is to supposed to be flexible and versatile, parsing user inputs and convert different units to get the correct output.
 
-**Unit Conversions**: Right now the module is using some units but not that many, this could be extended to using more units and a larger variety of units.
+**Unit Conversions**: Right now the module is using some units but not that many, this could be extended to using more units and a larger variety of those units.
+I had a plan to implement currency conversion, using API to fetch up-to-date exchange rate. But the free API keys gave only 100 requests per month, payment is necessary to gain more requests. I'm not willing to spend that money on my module, right now atleast.
+
+Some unit conversions are using too many floating points, (see example in readme kilometers -> miles) that should be changed since it's not necessary to be that precise.
 
 **Further addition of tests**: At the time writing this documentation, I have 37 tests. It doesn't cover all methods and not all conversions. To make sure all conversions and methods work as intended, everything should be included in the automated tests. Also adding edge cases, faulty inputs etc.
 
