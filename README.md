@@ -9,6 +9,11 @@ In your Java project, add these to your build
 **Gradle**:
 
 ```bash
+
+plugins {
+    id 'java'
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
