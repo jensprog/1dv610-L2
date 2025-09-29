@@ -100,6 +100,11 @@ public class App {
 - [TestReport](docs/test-reports/TestReport.md)
 - [AutomatedTests](docs/images/ModuleTests.png)
 
+## Bugs/Issues
+
+If you're interested in helping me fix known (or unknown) bugs and issues, feel free to check the link below!
+- [Github Issues](https://github.com/jensprog/1dv610-L2/issues)
+
 ## Contributing
 
 - [Developer.md](DEVELOPER.md)
