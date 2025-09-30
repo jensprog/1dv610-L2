@@ -56,3 +56,5 @@ Some unit conversions are using too many floating points, (see example in readme
 
 **Parsing**: The more natural language a user can type in, the better the parser is.
 Adding more functionality and more flexibility to it should make it better for users and therefore is a priority.
+
+**Summary**: To check what I believe needs to be done, visit [Github Issues](https://github.com/jensprog/1dv610-L2/issues)
