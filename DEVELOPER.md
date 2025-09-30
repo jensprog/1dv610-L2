@@ -2,9 +2,15 @@
 
 ## Get Started
 
+1. Fork the repository https://github.com/jensprog/1dv610-L2.git
+
+2. Run the command below (insert your Github account name instead of <your-username>) to your local machine so you can work on your own copy.
+
 ```bash
-git clone https://github.com/jensprog/1dv610-L2.git
+git clone https://github.com/your-username/1dv610-L2.git
 ```
+
+3. Follow the steps below to install the necessary packages.
 
 Developers need to install Java version 21.
 
@@ -24,6 +30,8 @@ brew install openjdk@21
 # Or use Package Manager
 choco install openjdk21
 ```
+
+4. When you've done any changes and pushed them to your fork, you can create a Pull Request to my repository and then I'll look into it and either accept, decline or request changes. 
 
 ## Testing
 
@@ -45,7 +53,7 @@ The project is using Google checkstyle. The only modification I've done is to re
 ## Future For The Module
 
 If you've come this far, I want to tell you about my visions for the module.
-The module is to supposed to be flexible and versatile, parsing user inputs and convert different units to get the correct output.
+The module is supposed to be flexible and versatile, parsing user inputs and convert different units to get the correct output.
 
 **Unit Conversions**: Right now the module is using some units but not that many, this could be extended to using more units and a larger variety of those units.
 I had a plan to implement currency conversion, using API to fetch up-to-date exchange rate. But the free API keys gave only 100 requests per month, payment is necessary to gain more requests. I'm not willing to spend that money on my module, right now atleast.
