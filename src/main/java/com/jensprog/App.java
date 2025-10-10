@@ -6,7 +6,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 m to ft");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 93 pounds to kg");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();

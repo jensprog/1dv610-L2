@@ -1,11 +1,23 @@
 package com.jensprog.unitconverter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Converts speed values between different units.
+ * Units are converted through meters per second (m/s) as a base unit.
  */
 public class SpeedConverter {
   private String fromUnit;
   private String toUnit;
+
+  private static final Map<String, Double> conversion = new HashMap<>();
+
+  static {
+    conversion.put("m/s", 1.0);
+    conversion.put("km/h", 0.277778);
+    conversion.put("mph", 0.44704);
+  }
 
   public SpeedConverter(String fromUnit, String toUnit) {
     this.fromUnit = fromUnit;
@@ -35,20 +47,13 @@ public class SpeedConverter {
   }
 
   public double convert(double value) {
-    if (fromUnit.equals("km/h") && toUnit.equals("m/s")) {
-      return value / 3.6;
-    } else if (fromUnit.equals("m/s") && toUnit.equals("km/h")) {
-      return value * 3.6;
-    } else if (fromUnit.equals("mph") && toUnit.equals("km/h")) {
-      return value * 1.60934;
-    } else if (fromUnit.equals("km/h") && toUnit.equals("mph")) {
-      return value / 1.60934;
-    } else if (fromUnit.equals("mph") && toUnit.equals("m/s")) {
-      return value * 0.44704;
-    } else if (fromUnit.equals("m/s") && toUnit.equals("mph")) {
-      return value / 0.44704;
-    } else {
-      throw new IllegalArgumentException("Cannot convert from " + fromUnit + " to " + toUnit);
+    try {
+      double fromFactor = conversion.get(fromUnit);
+      double toFactor = conversion.get(toUnit);
+
+      return Math.round(value * 100 * fromFactor / toFactor) / 100.0;
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Invalid unit for speed conversion");
     }
   }
 }

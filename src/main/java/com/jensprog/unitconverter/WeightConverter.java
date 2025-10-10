@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Converts weight values between different units.
+ * Units are converted through kilograms as a base unit.
  */
 public class WeightConverter {
   private String fromUnit;
@@ -60,7 +61,7 @@ public class WeightConverter {
       double fromFactor = conversion.get(fromUnit);
       double toFactor = conversion.get(toUnit);
 
-      return value * fromFactor / toFactor;
+      return Math.round(value * 100 * fromFactor / toFactor) / 100.0;
     } catch (Exception e) {
       throw new IllegalArgumentException("Cannot convert " + fromUnit + " to " + toUnit);
     }

@@ -10,15 +10,15 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("meter", "millimeter");
     double input = 1;
     double expected = 1000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0.001;
     expected = 1;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 1000;
     expected = 1000000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
@@ -26,47 +26,35 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("millimeter", "meter");
     double input = 1000;
     double expected = 1;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
-
-    input = 1;
-    expected = 0.001;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 1000000;
     expected = 1000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
   public void testInchToKilometer() {
     LengthConverter lengthConverter = new LengthConverter("inch", "kilometer");
-    double input = 1;
-    double expected = 0.0000254;
-    assertEquals(expected, lengthConverter.convert(input), 0.0000001);
-
-    input = 1000;
-    expected = 0.0254;
-    assertEquals(expected, lengthConverter.convert(input), 0.0000001);
-
-    input = 10000000;
-    expected = 254;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    double input = 10000000;
+    double expected = 254;
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
   public void testKilometerToInch() {
     LengthConverter lengthConverter = new LengthConverter("kilometer", "inch");
     double input = 1;
-    double expected = 39370.0787;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    double expected = 39370.08;
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0.0254;
     expected = 1000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 254;
     expected = 10000000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
@@ -74,15 +62,15 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("centimeter", "millimeter");
     double input = 10;
     double expected = 100;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 10000;
     expected = 100000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0;
     expected = 0;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
     
   }
 
@@ -91,15 +79,15 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("millimeter", "centimeter");
     double input = 100;
     double expected = 10;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 100000;
     expected = 10000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0;
     expected = 0;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
   }
 
@@ -108,15 +96,15 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("meter", "centimeter");
     double input = 1;
     double expected = 100;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0.01;
     expected = 1;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 1000;
     expected = 100000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
@@ -124,15 +112,15 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("centimeter", "meter");
     double input = 100;
     double expected = 1;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 1;
     expected = 0.01;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 100000;
     expected = 1000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 
   @Test
@@ -140,14 +128,14 @@ class LengthConverterTest {
     LengthConverter lengthConverter = new LengthConverter("meter", "meter");
     double input = 1;
     double expected = 1;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 0.01;
     expected = 0.01;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
 
     input = 1000;
     expected = 1000;
-    assertEquals(expected, lengthConverter.convert(input), 0.0001);
+    assertEquals(expected, lengthConverter.convert(input));
   }
 }

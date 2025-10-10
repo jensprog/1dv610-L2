@@ -10,15 +10,15 @@ class TemperatureConverterTest {
     TemperatureConverter temperatureConverter = new TemperatureConverter("Celsius", "Fahrenheit");
     double input = 35;
     double expected = 95;
-    assertEquals(expected, temperatureConverter.convert(input), 0.0001);
+    assertEquals(expected, temperatureConverter.convert(input));
 
     input = 1000;
     expected = 1832;
-    assertEquals(expected, temperatureConverter.convert(input), 0.0001);
+    assertEquals(expected, temperatureConverter.convert(input));
 
     input = -2000;
     expected = -3568;
-    assertEquals(expected, temperatureConverter.convert(input), 0.0001);
+    assertEquals(expected, temperatureConverter.convert(input));
   }
 
   @Test

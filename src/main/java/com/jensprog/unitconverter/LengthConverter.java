@@ -57,7 +57,7 @@ public class LengthConverter {
       double fromFactor = conversion.get(fromUnit);
       double toFactor = conversion.get(toUnit);
 
-      return value * fromFactor / toFactor;
+      return Math.round(value * 100 * fromFactor / toFactor) / 100.0;
     } catch (Exception e) {
       throw new IllegalArgumentException("Cannot convert from " + fromUnit + " to " + toUnit);
     }

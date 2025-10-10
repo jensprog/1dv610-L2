@@ -43,9 +43,8 @@ public class UnitAbbreviations {
     ABBREVIATIONS.put("tbsp", "tablespoon");
     ABBREVIATIONS.put("tsp", "teaspoon");
 
-    ABBREVIATIONS.put("m/s", "m/s");
+    ABBREVIATIONS.put("ms", "m/s");
     ABBREVIATIONS.put("kmh", "km/h");
-    ABBREVIATIONS.put("mph", "mph");
   }
 
   public UnitAbbreviations() {}
