@@ -50,7 +50,7 @@ public class Tokenizer {
     char currentChar = input.charAt(position);
 
     if (Character.isWhitespace(currentChar)) {
-      return position + 1; // Skip whitespace
+      return position + 1;
     }
 
     if (Character.isDigit(currentChar) || currentChar == '.') {

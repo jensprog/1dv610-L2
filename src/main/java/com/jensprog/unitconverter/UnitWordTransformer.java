@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * A utility class for pluralizing and singularizing unit names.
+ * Also handles abbreviations.
  */
 public class UnitWordTransformer {
   private final Map<String, String> singularToPlural = new HashMap<>();
