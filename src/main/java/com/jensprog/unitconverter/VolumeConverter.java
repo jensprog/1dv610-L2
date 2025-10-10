@@ -1,6 +1,7 @@
 package com.jensprog.unitconverter;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Converts volume values between different units.
@@ -9,7 +10,7 @@ public class VolumeConverter {
   private String fromUnit;
   private String toUnit;
 
-  private static final HashMap<String, Double> conversion = new HashMap<>();
+  private static final Map<String, Double> conversion = new HashMap<>();
 
   static {
     conversion.put("liter", 1.0);

@@ -1,6 +1,8 @@
 package com.jensprog.unitconverter;
 
 import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * A utility class for converting length values.
@@ -10,7 +12,7 @@ public class LengthConverter {
   private String fromUnit;
   private String toUnit;
 
-  private static final HashMap<String, Double> conversion = new HashMap<>();
+  private static final Map<String, Double> conversion = new HashMap<>();
 
   static {
     conversion.put("meter", 1.0);
