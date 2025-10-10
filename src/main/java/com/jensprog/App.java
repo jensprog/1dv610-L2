@@ -6,7 +6,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("10 floz to dl");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 m to ft");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();

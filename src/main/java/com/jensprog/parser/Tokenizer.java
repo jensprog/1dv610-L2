@@ -12,8 +12,8 @@ import java.util.Set;
 public class Tokenizer {
   private final String input;
   private final List<Token> tokens = new ArrayList<>();
-  private final UnitAbbreviations abbreviations = new UnitAbbreviations();
-  private final UnitWordTransformer wordTransformer = new UnitWordTransformer();
+  private final UnitWordTransformer wordTransformer;
+  private final UnitAbbreviations abbreviations;
   private static final Set<String> VALID_UNITS = Set.of(
       "meter", "kilometer",
       "mile", "foot", "inch", "centimeter",
@@ -34,8 +34,11 @@ public class Tokenizer {
       "celsius", "fahrenheit", "kelvin"
       );
 
-  public Tokenizer(String input) {
+  public Tokenizer(String input, UnitWordTransformer wordTransformer,
+      UnitAbbreviations abbreviations) {
     this.input = input;
+    this.wordTransformer = wordTransformer;
+    this.abbreviations = abbreviations;
   }
 
   public List<Token> scanTokens() {

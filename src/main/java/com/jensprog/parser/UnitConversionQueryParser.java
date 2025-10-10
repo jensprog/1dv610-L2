@@ -1,5 +1,7 @@
 package com.jensprog.parser;
 
+import com.jensprog.unitconverter.UnitAbbreviations;
+import com.jensprog.unitconverter.UnitWordTransformer;
 import java.util.List;
 
 /**
@@ -11,7 +13,8 @@ public class UnitConversionQueryParser {
   private String toUnit;
 
   public UnitConversionQueryParser(String input) {
-    Tokenizer tokenizer = new Tokenizer(input);
+    Tokenizer tokenizer = new Tokenizer(input, new UnitWordTransformer(),
+        new UnitAbbreviations());
     List<Token> tokens = tokenizer.scanTokens();
     parse(tokens);
   }

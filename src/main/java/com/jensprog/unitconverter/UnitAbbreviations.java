@@ -48,6 +48,8 @@ public class UnitAbbreviations {
     ABBREVIATIONS.put("mph", "mph");
   }
 
+  public UnitAbbreviations() {}
+
   public String expandAbbreviation(String unit) {
     return ABBREVIATIONS.getOrDefault(unit.toLowerCase(), unit);
   }
