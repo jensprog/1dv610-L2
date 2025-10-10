@@ -23,7 +23,7 @@ public class UnitConversionQueryFormatter {
   public String format() {
     String fromUnitFormatted = wordTransformer.pluralize(fromUnit, originalValue);
     String toUnitFormatted = wordTransformer.pluralize(toUnit, convertedValue);
-    return originalValue + " " + fromUnitFormatted + " is " 
+    return originalValue + " " + fromUnitFormatted + " is "
         + convertedValue + " " + toUnitFormatted;
   }
 }

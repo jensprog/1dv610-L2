@@ -38,21 +38,17 @@ public class UnitAbbreviations {
     ABBREVIATIONS.put("gal", "gallon");
     ABBREVIATIONS.put("qt", "quart");
     ABBREVIATIONS.put("pt", "pint");
-    ABBREVIATIONS.put("cup", "c");
-    ABBREVIATIONS.put("fl oz", "fluidOunce");
+    ABBREVIATIONS.put("c", "cup");
+    ABBREVIATIONS.put("floz", "fluidounce");
     ABBREVIATIONS.put("tbsp", "tablespoon");
     ABBREVIATIONS.put("tsp", "teaspoon");
 
     ABBREVIATIONS.put("m/s", "m/s");
     ABBREVIATIONS.put("kmh", "km/h");
     ABBREVIATIONS.put("mph", "mph");
-
-    ABBREVIATIONS.put("c", "celsius");
-    ABBREVIATIONS.put("f", "fahrenheit");
-    ABBREVIATIONS.put("k", "kelvin");
   }
 
-  public String getAbbreviation(String unit) {
+  public String expandAbbreviation(String unit) {
     return ABBREVIATIONS.getOrDefault(unit.toLowerCase(), unit);
   }
 }

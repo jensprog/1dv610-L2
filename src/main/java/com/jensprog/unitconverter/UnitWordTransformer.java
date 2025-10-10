@@ -41,7 +41,7 @@ public class UnitWordTransformer {
     singularToPlural.put("quart", "quarts");
     singularToPlural.put("pint", "pints");
     singularToPlural.put("cup", "cups");
-    singularToPlural.put("fluidOunce", "fluidOunces");
+    singularToPlural.put("fluidounce", "fluidounces");
 
     singularToPlural.put("m/s", "m/s");
     singularToPlural.put("km/h", "km/h");

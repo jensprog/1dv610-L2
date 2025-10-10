@@ -1,5 +1,6 @@
 package com.jensprog.parser;
 
+import com.jensprog.unitconverter.UnitAbbreviations;
 import com.jensprog.unitconverter.UnitWordTransformer;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Set;
 public class Tokenizer {
   private final String input;
   private final List<Token> tokens = new ArrayList<>();
+  private final UnitAbbreviations abbreviations = new UnitAbbreviations();
   private final UnitWordTransformer wordTransformer = new UnitWordTransformer();
   private static final Set<String> VALID_UNITS = Set.of(
       "meter", "kilometer",
@@ -23,7 +25,7 @@ public class Tokenizer {
       "nanogram", "grain",
 
       "liter", "milliliter", "gallon", "quart", 
-      "pint", "cup", "fluid ounce", "tablespoon",
+      "pint", "cup", "fluidounce", "tablespoon",
       "teaspoon", "cubic meter", "cubic centimeter", 
       "cubic inch", "cubic foot", "cubic yard", "deciliter", "centiliter",
 
@@ -95,9 +97,15 @@ public class Tokenizer {
 
     String wordText = input.substring(start, position).toLowerCase();
     String singularForm = wordTransformer.singularize(wordText);
+    String expandedForm = abbreviations.expandAbbreviation(wordText);
 
     if (VALID_UNITS.contains(singularForm)) {
       tokens.add(new Token(TokenType.UNIT, singularForm, 0, start));
+      return position;
+    }
+
+    if (VALID_UNITS.contains(expandedForm)) {
+      tokens.add(new Token(TokenType.UNIT, expandedForm, 0, start));
       return position;
     }
 

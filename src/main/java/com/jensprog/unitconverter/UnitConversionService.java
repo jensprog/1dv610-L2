@@ -59,7 +59,7 @@ public class UnitConversionService {
 
   private boolean isVolumeUnit(String unit) {
     return switch (unit.toLowerCase()) {
-      case "liter", "milliliter", "gallon", "quart", "pint", "cup", "fluid ounce", "tablespoon",
+      case "liter", "milliliter", "gallon", "quart", "pint", "cup", "fluidounce", "tablespoon",
           "teaspoon", "cubic meter", "cubic centimeter", "cubic inch", "cubic foot", "cubic yard",
           "deciliter", "centiliter" -> true;
       default -> false;

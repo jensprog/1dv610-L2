@@ -25,7 +25,7 @@ public class VolumeConverter {
     conversion.put("quart", 0.946353);
     conversion.put("pint", 0.473176);
     conversion.put("cup", 0.24);
-    conversion.put("fluid ounce", 0.0295735);
+    conversion.put("fluidounce", 0.0295735);
     conversion.put("tablespoon", 0.0147868);
     conversion.put("teaspoon", 0.00492892);
   }
