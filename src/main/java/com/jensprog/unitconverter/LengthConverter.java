@@ -3,7 +3,6 @@ package com.jensprog.unitconverter;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * A utility class for converting length values.
  * Units are converted through meters as a base unit.
