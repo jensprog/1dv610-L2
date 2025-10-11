@@ -2,7 +2,7 @@
 
 ## Usage
 
-The **String Parser** is used to convert different units in a more natural language using user input.
+The **Unit Converter String Parser** is used to convert different units in a more natural language using user input.
 
 ```java
 // Example showing conversions with only value and units and with natural language involved
@@ -15,7 +15,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 public class App {
   public static void main(String[] args) {
     UnitConversionQueryParser parser = new UnitConversionQueryParser("15.5 kilometers to miles");
-    // Or "I want to know how far 15.5 kilometers is in miles"
+    // Or "I want to know how far 15.5 km is in mi"
     // Or "What is 2 cups in liters?"
     double value = parser.getValue(); // 15.5
     String fromUnit = parser.getFromUnit(); // "kilometers"
@@ -33,10 +33,22 @@ public class App {
 
 ```bash
 # Output
-15.5 kilometers is 9.631277418072004 miles
+15.5 kilometers is 9.63 miles
 ```
 
 ## Getting started
+
+Wheter you want users to use a natural language in their queries or just convert different units between each other, this module can help you out. 
+
+**Version 1.0.1 supports**:
+
+- **Length Conversion**: Meter, Millimeter, Centimeter, Decimeter, Kilometer, Inch, Foot, Yard, Mile.
+- **Speed Conversion**: m/s, km/h, mph.
+- **Temperature Conversion**: Celsius, Fahrenheit, Kelvin.
+- **Volume Conversion**: Liter, Deciliter, Centiliter, Milliliter, Cubic Meter, Cubic Centimeter, Cubic Inch, Cubic Foot, Cubic Yard, Gallon, Quart, Pint, Cup, Fluid Ounce, Tablespoon, Teaspoon.
+- **Weight Conversion**: Kilogram, Tonne, Long Ton, Short Ton, Stone, Pound, Gram, Hectogram, Ounce, Grain, Milligram, Microgram, Nanogram.
+
+**Abbreviations**: The module supports abbreviations, e.g. km for kilometer, m for meter, kg for kilogram etc.
 
 ### Prerequisites
 

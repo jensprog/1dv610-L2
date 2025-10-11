@@ -6,7 +6,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 93 pounds to kg");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 15.5 km to mi");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();

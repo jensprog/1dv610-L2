@@ -12,7 +12,6 @@ public class UnitAbbreviations {
     ABBREVIATIONS.put("cm", "centimeter");
     ABBREVIATIONS.put("dm", "decimeter");
     ABBREVIATIONS.put("km", "kilometer");
-    ABBREVIATIONS.put("in", "inch");
     ABBREVIATIONS.put("ft", "foot");
     ABBREVIATIONS.put("yd", "yard");
     ABBREVIATIONS.put("mi", "mile");
