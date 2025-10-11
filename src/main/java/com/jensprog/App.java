@@ -6,7 +6,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 15.5 km to mi");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 cl to dl");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();
