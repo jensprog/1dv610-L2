@@ -68,7 +68,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.jensprog:1dv610-L2:v1.0.1'
+    implementation 'com.github.jensprog:1dv610-L2:v1.0.3'
 }
 ```
 
@@ -85,13 +85,13 @@ dependencies {
   <dependency>
       <groupId>com.github.jensprog</groupId>
       <artifactId>1dv610-L2</artifactId>
-      <version>v1.0.1</version>
+      <version>v1.0.3</version>
   </dependency>
 ```
 
 **Manual JAR Download**:
 
-- Download the JAR from: <https://jitpack.io/com/github/jensprog/1dv610-L2/v1.0.1/1dv610-L2-v1.0.1.jar>
+- Download the JAR from: <https://jitpack.io/com/github/jensprog/1dv610-L2/v1.0.3/1dv610-L2-v1.0.3.jar>
 - Add to your classpath manually
 
 ## Badges
