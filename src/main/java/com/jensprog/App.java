@@ -6,10 +6,11 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 cl to dl");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 ml to dl");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();
+
 
     UnitConversionService service = new UnitConversionService();
     double result = service.convert(value, fromUnit, toUnit);

@@ -2,7 +2,6 @@ package com.jensprog.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.jensprog.unitconverter.UnitAbbreviations;
 import com.jensprog.unitconverter.UnitWordTransformer;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +11,7 @@ public class TokenizerTest {
   @Test
   public void testScanTokens() {
     String input = "Convert 10 meters to feet";
-    Tokenizer tokenizer = new Tokenizer(input, new UnitWordTransformer(),
-        new UnitAbbreviations());
+    Tokenizer tokenizer = new Tokenizer(input, new UnitWordTransformer());
     var tokens = tokenizer.scanTokens();
     
     assertEquals(6, tokens.size());

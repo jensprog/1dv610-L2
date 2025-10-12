@@ -10,22 +10,27 @@ public class UnitConversionService {
   private VolumeConverter volumeConverter = new VolumeConverter(null, null);
   private TemperatureConverter temperatureConverter = new TemperatureConverter(null, null);
   private SpeedConverter speedConverter = new SpeedConverter(null, null);
+  private final UnitWordTransformer wordTransformer;
+
+  public UnitConversionService() {
+    this.wordTransformer = new UnitWordTransformer();
+  }
 
   public double convertLength(double value, String fromUnit, String toUnit) {
-    lengthConverter.setFromUnit(fromUnit);
-    lengthConverter.setToUnit(toUnit);
+    lengthConverter.setFromUnit(expandUnitWord(fromUnit));
+    lengthConverter.setToUnit(expandUnitWord(toUnit));
     return lengthConverter.convert(value);
   }
 
   public double convertWeight(double value, String fromUnit, String toUnit) {
-    weightConverter.setFromUnit(fromUnit);
-    weightConverter.setToUnit(toUnit);
+    weightConverter.setFromUnit(expandUnitWord(fromUnit));
+    weightConverter.setToUnit(expandUnitWord(toUnit));
     return weightConverter.convert(value);
   }
 
   public double convertVolume(double value, String fromUnit, String toUnit) {
-    volumeConverter.setFromUnit(fromUnit);
-    volumeConverter.setToUnit(toUnit);
+    volumeConverter.setFromUnit(expandUnitWord(fromUnit));
+    volumeConverter.setToUnit(expandUnitWord(toUnit));
     return volumeConverter.convert(value);
   }
 
@@ -36,13 +41,17 @@ public class UnitConversionService {
   }
 
   public double convertSpeed(double value, String fromUnit, String toUnit) {
-    speedConverter.setFromUnit(fromUnit);
-    speedConverter.setToUnit(toUnit);
+    speedConverter.setFromUnit(expandUnitWord(fromUnit));
+    speedConverter.setToUnit(expandUnitWord(toUnit));
     return speedConverter.convert(value);
   }
 
+  private String expandUnitWord(String unit) {
+    return wordTransformer.expandAbbreviation(unit);
+  }
+
   private boolean isLengthUnit(String unit) {
-    return switch (unit.toLowerCase()) {
+    return switch (expandUnitWord(unit).toLowerCase()) {
       case "meter", "millimeter", "centimeter", "decimeter", "kilometer", "inch", "foot", "yard",
           "mile" -> true;
       default -> false;
@@ -50,7 +59,7 @@ public class UnitConversionService {
   }
 
   private boolean isWeightUnit(String unit) {
-    return switch (unit.toLowerCase()) {
+    return switch (expandUnitWord(unit).toLowerCase()) {
       case "gram", "kilogram", "pound", "ounce", "tonne", "milligram", "microgram", "stone",
           "longton", "shortton", "hectogram", "nanogram", "grain" -> true;
       default -> false;
@@ -58,7 +67,7 @@ public class UnitConversionService {
   }
 
   private boolean isVolumeUnit(String unit) {
-    return switch (unit.toLowerCase()) {
+    return switch (expandUnitWord(unit).toLowerCase()) {
       case "liter", "milliliter", "gallon", "quart", "pint", "cup", "fluidounce", "tablespoon",
           "teaspoon", "cubic meter", "cubic centimeter", "cubic inch", "cubic foot", "cubic yard",
           "deciliter", "centiliter" -> true;
@@ -74,7 +83,7 @@ public class UnitConversionService {
   }
 
   private boolean isSpeedUnit(String unit) {
-    return switch (unit.toLowerCase()) {
+    return switch (expandUnitWord(unit).toLowerCase()) {
       case "km/h", "kmph", "kph", "m/s", "mph" -> true;
       default -> false;
     };

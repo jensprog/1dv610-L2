@@ -1,6 +1,5 @@
 package com.jensprog.parser;
 
-import com.jensprog.unitconverter.UnitAbbreviations;
 import com.jensprog.unitconverter.UnitWordTransformer;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,32 +12,33 @@ public class Tokenizer {
   private final String input;
   private final List<Token> tokens = new ArrayList<>();
   private final UnitWordTransformer wordTransformer;
-  private final UnitAbbreviations abbreviations;
   private static final Set<String> VALID_UNITS = Set.of(
       "meter", "kilometer",
       "mile", "foot", "inch", "centimeter",
       "millimeter", "yard", "decimeter",
+      "m", "mm", "cm", "dm", "km", "ft", "yd", "mi",
 
       "gram", "kilogram", "pound", "ounce",
       "tonne", "milligram", "microgram",
       "stone", "longTon", "shortTon", "hectogram",
       "nanogram", "grain",
+      "kg", "t", "hg", "g", "mg", "µg", "ng", "lt", "tn", 
+      "st", "lb", "oz", "gr",
 
       "liter", "milliliter", "gallon", "quart", 
       "pint", "cup", "fluidounce", "tablespoon",
       "teaspoon", "cubic meter", "cubic centimeter", 
       "cubic inch", "cubic foot", "cubic yard", "deciliter", "centiliter",
+      "l", "ml", "dl", "cl", "gal", "qt", "pt", "c", "floz", "tbsp", "tsp",
 
-      "km/h", "kmph", "kph", "m/s", "mph",
+      "km/h", "kmph", "kph", "kmh", "m/s", "mph",
 
       "celsius", "fahrenheit", "kelvin"
       );
 
-  public Tokenizer(String input, UnitWordTransformer wordTransformer,
-      UnitAbbreviations abbreviations) {
+  public Tokenizer(String input, UnitWordTransformer wordTransformer) {
     this.input = input;
     this.wordTransformer = wordTransformer;
-    this.abbreviations = abbreviations;
   }
 
   public List<Token> scanTokens() {
@@ -100,15 +100,9 @@ public class Tokenizer {
 
     String wordText = input.substring(start, position).toLowerCase();
     String singularForm = wordTransformer.singularize(wordText);
-    String expandedForm = abbreviations.expandAbbreviation(wordText);
 
     if (VALID_UNITS.contains(singularForm)) {
       tokens.add(new Token(TokenType.UNIT, singularForm, 0, start));
-      return position;
-    }
-
-    if (VALID_UNITS.contains(expandedForm)) {
-      tokens.add(new Token(TokenType.UNIT, expandedForm, 0, start));
       return position;
     }
 
