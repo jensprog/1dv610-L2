@@ -1,5 +1,7 @@
 package com.jensprog.unitconverter;
 
+import com.jensprog.validation.UnitTypeDetector;
+
 /**
  * Service class for packaging all unit conversion.
  * Facade pattern to simplify usage of different converters.
@@ -10,98 +12,58 @@ public class UnitConversionService {
   private VolumeConverter volumeConverter = new VolumeConverter(null, null);
   private TemperatureConverter temperatureConverter = new TemperatureConverter(null, null);
   private SpeedConverter speedConverter = new SpeedConverter(null, null);
-  private final UnitWordTransformer wordTransformer;
+  private final UnitTypeDetector unitTypeDetector;
 
   public UnitConversionService() {
-    this.wordTransformer = new UnitWordTransformer();
+    this.unitTypeDetector = new UnitTypeDetector();
   }
 
-  public double convertLength(double value, String fromUnit, String toUnit) {
-    lengthConverter.setFromUnit(expandUnitWord(fromUnit));
-    lengthConverter.setToUnit(expandUnitWord(toUnit));
+  private double convertLength(double value, String fromUnit, String toUnit) {
+    lengthConverter.setFromUnit(unitTypeDetector.expandUnitWord(fromUnit));
+    lengthConverter.setToUnit(unitTypeDetector.expandUnitWord(toUnit));
     return lengthConverter.convert(value);
   }
 
-  public double convertWeight(double value, String fromUnit, String toUnit) {
-    weightConverter.setFromUnit(expandUnitWord(fromUnit));
-    weightConverter.setToUnit(expandUnitWord(toUnit));
+  private double convertWeight(double value, String fromUnit, String toUnit) {
+    weightConverter.setFromUnit(unitTypeDetector.expandUnitWord(fromUnit));
+    weightConverter.setToUnit(unitTypeDetector.expandUnitWord(toUnit));
     return weightConverter.convert(value);
   }
 
-  public double convertVolume(double value, String fromUnit, String toUnit) {
-    volumeConverter.setFromUnit(expandUnitWord(fromUnit));
-    volumeConverter.setToUnit(expandUnitWord(toUnit));
+  private double convertVolume(double value, String fromUnit, String toUnit) {
+    volumeConverter.setFromUnit(unitTypeDetector.expandUnitWord(fromUnit));
+    volumeConverter.setToUnit(unitTypeDetector.expandUnitWord(toUnit));
     return volumeConverter.convert(value);
   }
 
-  public double convertTemperature(double value, String fromUnit, String toUnit) {
-    temperatureConverter.setFromUnit(fromUnit);
-    temperatureConverter.setToUnit(toUnit);
+  private double convertTemperature(double value, String fromUnit, String toUnit) {
+    temperatureConverter.setFromUnit(unitTypeDetector.expandUnitWord(fromUnit));
+    temperatureConverter.setToUnit(unitTypeDetector.expandUnitWord(toUnit));
     return temperatureConverter.convert(value);
   }
 
-  public double convertSpeed(double value, String fromUnit, String toUnit) {
-    speedConverter.setFromUnit(expandUnitWord(fromUnit));
-    speedConverter.setToUnit(expandUnitWord(toUnit));
+  private double convertSpeed(double value, String fromUnit, String toUnit) {
+    speedConverter.setFromUnit(unitTypeDetector.expandUnitWord(fromUnit));
+    speedConverter.setToUnit(unitTypeDetector.expandUnitWord(toUnit));
     return speedConverter.convert(value);
   }
 
-  private String expandUnitWord(String unit) {
-    return wordTransformer.expandAbbreviation(unit);
-  }
-
-  private boolean isLengthUnit(String unit) {
-    return switch (expandUnitWord(unit).toLowerCase()) {
-      case "meter", "millimeter", "centimeter", "decimeter", "kilometer", "inch", "foot", "yard",
-          "mile" -> true;
-      default -> false;
-    };
-  }
-
-  private boolean isWeightUnit(String unit) {
-    return switch (expandUnitWord(unit).toLowerCase()) {
-      case "gram", "kilogram", "pound", "ounce", "tonne", "milligram", "microgram", "stone",
-          "longton", "shortton", "hectogram", "nanogram", "grain" -> true;
-      default -> false;
-    };
-  }
-
-  private boolean isVolumeUnit(String unit) {
-    return switch (expandUnitWord(unit).toLowerCase()) {
-      case "liter", "milliliter", "gallon", "quart", "pint", "cup", "fluidounce", "tablespoon",
-          "teaspoon", "cubic meter", "cubic centimeter", "cubic inch", "cubic foot", "cubic yard",
-          "deciliter", "centiliter" -> true;
-      default -> false;
-    };
-  }
-
-  private boolean isTemperatureUnit(String unit) {
-    return switch (unit.toLowerCase()) {
-      case "celsius", "fahrenheit", "kelvin" -> true;
-      default -> false;
-    };
-  }
-
-  private boolean isSpeedUnit(String unit) {
-    return switch (expandUnitWord(unit).toLowerCase()) {
-      case "km/h", "kmph", "kph", "m/s", "mph" -> true;
-      default -> false;
-    };
-  }
-
   public double convert(double value, String fromUnit, String toUnit) {
-    if (isLengthUnit(fromUnit) && isLengthUnit(toUnit)) {
+    if (unitTypeDetector.isLengthUnit(fromUnit) && unitTypeDetector.isLengthUnit(toUnit)) {
       return convertLength(value, fromUnit, toUnit);
-    } else if (isWeightUnit(fromUnit) && isWeightUnit(toUnit)) {
-      return convertWeight(value, fromUnit, toUnit);
-    } else if (isVolumeUnit(fromUnit) && isVolumeUnit(toUnit)) {
-      return convertVolume(value, fromUnit, toUnit);
-    } else if (isTemperatureUnit(fromUnit) && isTemperatureUnit(toUnit)) {
-      return convertTemperature(value, fromUnit, toUnit);
-    } else if (isSpeedUnit(fromUnit) && isSpeedUnit(toUnit)) {
-      return convertSpeed(value, fromUnit, toUnit);
-    } else {
-      throw new IllegalArgumentException("Incompatible units: " + fromUnit + " and " + toUnit);
     }
+    if (unitTypeDetector.isWeightUnit(fromUnit) && unitTypeDetector.isWeightUnit(toUnit)) {
+      return convertWeight(value, fromUnit, toUnit);
+    }
+    if (unitTypeDetector.isVolumeUnit(fromUnit) && unitTypeDetector.isVolumeUnit(toUnit)) {
+      return convertVolume(value, fromUnit, toUnit);
+    }
+    if (unitTypeDetector.isTemperatureUnit(fromUnit) && unitTypeDetector.isTemperatureUnit(toUnit)) {
+      return convertTemperature(value, fromUnit, toUnit);
+    }
+    if (unitTypeDetector.isSpeedUnit(fromUnit) && unitTypeDetector.isSpeedUnit(toUnit)) {
+      return convertSpeed(value, fromUnit, toUnit);
+    }
+    throw new IllegalArgumentException("Cannot convert from " + fromUnit + " to " + toUnit);
   }
 }

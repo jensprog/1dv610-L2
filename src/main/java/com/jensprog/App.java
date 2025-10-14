@@ -6,7 +6,7 @@ import com.jensprog.unitconverter.UnitConversionService;
 
 public class App {
   public static void main(String[] args) {
-    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 10 ml to dl");
+    UnitConversionQueryParser parser = new UnitConversionQueryParser("Convert 100 mph to kmh");
     double value = parser.getValue();
     String fromUnit = parser.getFromUnit();
     String toUnit = parser.getToUnit();
