@@ -2,6 +2,11 @@ package com.jensprog.validation;
 
 import com.jensprog.unitconverter.UnitWordTransformer;
 
+/**
+ * This class is responsible for detecting the type of a unit (length, weight, volume, temperature, speed).
+ * Used inside the UnitConversionService to determine which converter to use.
+ * Uses the UnitWordTransformer to expand abbreviations before checking.
+ */
 public class UnitTypeDetector {
   private final UnitWordTransformer wordTransformer;
 
