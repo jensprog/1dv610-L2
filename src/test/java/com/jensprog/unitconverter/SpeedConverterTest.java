@@ -6,98 +6,146 @@ import org.junit.jupiter.api.Test;
 
 class SpeedConverterTest {
   @Test
-  public void testKmhToMs() {
+  public void testKmhToMsWithNormalNumber() {
     SpeedConverter speedConverter = new SpeedConverter("km/h", "m/s");
     double input = 36;
     double expected = 10;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 3.6;
-    expected = 1;
-    assertEquals(expected, speedConverter.convert(input));
-
-    input = 72;
-    expected = 20;
+  @Test
+  public void testKmhToMsWithLowNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("km/h", "m/s");
+    double input = 3.6;
+    double expected = 1;
     assertEquals(expected, speedConverter.convert(input));
   }
 
   @Test
-  public void testMsToKmh() {
+  public void testKmhToMsWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("km/h", "m/s");
+    double input = 1000;
+    double expected = 277.78;
+    assertEquals(expected, speedConverter.convert(input));
+  }
+
+  @Test
+  public void testMsToKmhWithNormalNumber() {
     SpeedConverter speedConverter = new SpeedConverter("m/s", "km/h");
     double input = 10;
     double expected = 36;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 1;
-    expected = 3.6;
-    assertEquals(expected, speedConverter.convert(input));
-
-    input = 20;
-    expected = 72;
+  @Test
+  public void testMsToKmhWithLowNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("m/s", "km/h");
+    double input = 1;
+    double expected = 3.6;
     assertEquals(expected, speedConverter.convert(input));
   }
 
   @Test
-  public void testMphToKmh() {
+  public void testMsToKmhWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("m/s", "km/h");
+    double input = 300;
+    double expected = 1080;
+    assertEquals(expected, speedConverter.convert(input));
+  }
+
+  @Test
+  public void testMphToKmhWithLowNumber() {
     SpeedConverter speedConverter = new SpeedConverter("mph", "km/h");
     double input = 1;
     double expected = 1.61;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 60;
-    expected = 96.56;
-    assertEquals(expected, speedConverter.convert(input));
-
-    input = 100;
-    expected = 160.93;
+  @Test
+  public void testMphToKmhWithNormalNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("mph", "km/h");
+    double input = 60;
+    double expected = 96.56;
     assertEquals(expected, speedConverter.convert(input));
   }
 
   @Test
-  public void testKmhToMph() {
+  public void testMphToKmhWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("mph", "km/h");
+    double input = 1000;
+    double expected = 1609.34;
+    assertEquals(expected, speedConverter.convert(input));
+  }
+
+  @Test
+  public void testKmhToMphWithLowNumber() {
     SpeedConverter speedConverter = new SpeedConverter("km/h", "mph");
     double input = 1;
     double expected = 0.62;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 100;
-    expected = 62.14;
-    assertEquals(expected, speedConverter.convert(input));
-
-    input = 160.934;
-    expected = 100;
+  @Test
+  public void testKmhToMphWithNormalNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("km/h", "mph");
+    double input = 100;
+    double expected = 62.14;
     assertEquals(expected, speedConverter.convert(input));
   }
 
   @Test
-  public void testMphToMs() {
+  public void testKmhToMphWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("km/h", "mph");
+    double input = 1000;
+    double expected = 621.37;
+    assertEquals(expected, speedConverter.convert(input));
+  }
+
+  @Test
+  public void testMphToMsWithLowNumber() {
     SpeedConverter speedConverter = new SpeedConverter("mph", "m/s");
     double input = 1;
     double expected = 0.45;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 60;
-    expected = 26.82;
-    assertEquals(expected, speedConverter.convert(input));
-
-    input = 100;
-    expected = 44.70;
+  @Test
+  public void testMphToMsWithNormalNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("mph", "m/s");
+    double input = 60;
+    double expected = 26.82;
     assertEquals(expected, speedConverter.convert(input));
   }
 
   @Test
-  public void testMsToMph() {
+  public void testMphToMsWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("mph", "m/s");
+    double input = 1000;
+    double expected = 447.04;
+    assertEquals(expected, speedConverter.convert(input));
+  }
+
+  @Test
+  public void testMsToMphWithLowNumber() {
     SpeedConverter speedConverter = new SpeedConverter("m/s", "mph");
     double input = 1;
     double expected = 2.24;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 10;
-    expected = 22.37;
+  @Test
+  public void testMsToMphwithNormalNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("m/s", "mph");
+    double input = 30;
+    double expected = 67.11;
     assertEquals(expected, speedConverter.convert(input));
+  }
 
-    input = 100;
-    expected = 223.69;
+  @Test
+  public void testMsToMphWithLargeNumber() {
+    SpeedConverter speedConverter = new SpeedConverter("m/s", "mph");
+    double input = 250;
+    double expected = 559.23;
     assertEquals(expected, speedConverter.convert(input));
   }
 }
