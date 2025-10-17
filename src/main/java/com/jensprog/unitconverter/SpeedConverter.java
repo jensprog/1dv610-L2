@@ -53,7 +53,7 @@ public class SpeedConverter {
 
       return Math.round(value * 100 * fromFactor / toFactor) / 100.0;
     } catch (Exception e) {
-      throw new IllegalArgumentException("Invalid unit for speed conversion");
+      throw new IllegalArgumentException("Cannot convert from " + fromUnit + " to " + toUnit);
     }
   }
 }
