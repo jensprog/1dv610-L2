@@ -4,7 +4,7 @@
 
 1. Fork the repository https://github.com/jensprog/1dv610-L2.git
 
-2. Run the command below (insert your Github account name instead of <your-username>) to your local machine so you can work on your own copy.
+2. Run the command below (insert your Github account name instead of "your-username") to your local machine so you can work on your own copy.
 
 ```bash
 git clone https://github.com/your-username/1dv610-L2.git
@@ -48,7 +48,7 @@ The project is using **JUnit** for automated tests. Run this command to run the 
 
 ## Code Style
 
-The project is using Google checkstyle. The only modification I've done is to remove the need for JavaDoc on every method. If you want specifics, check **build.gradle**.
+The project is using Google checkstyle. The only modifications I've done is to remove the need for JavaDoc on every method and changed line length from 100 to 120. If you want specifics, check **build.gradle**.
 
 ## Future For The Module
 
